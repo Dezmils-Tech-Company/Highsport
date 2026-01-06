@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const slides = [
   {
     id: 1,
-    title: "Elite Championship Training",
-    subtitle: "2026 Season Registration",
-    description: "Train like the pros with national-level cricket coaches",
-    image: "/BannerImg/slide-1.webp",
-    cta: "Join Now",
+    title: "Elegant High School sports Notice Board",
+    subtitle: "Your True Sports Partner",
+    description: "Get real-time updates on matches, events, and announcements. all in one place.",
+    image: "/BannerImg/image.png",
+    cta: "Read More",
     link: "/membership",
   },
   {

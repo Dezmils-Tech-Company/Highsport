@@ -222,7 +222,7 @@ const Location = () => {
         {/* Additional Locations Note */}
         <div className="mt-8 text-center text-gray-500">
           <p>
-            Visit our facilities in {locations.length} cities across Bangladesh
+            Visit our facilities in {locations.length} Schools across Nyanza
           </p>
         </div>
       </div>

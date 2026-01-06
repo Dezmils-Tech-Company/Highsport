@@ -21,8 +21,8 @@ const Footer = () => {
                 <Logo />
               </Link>
               <p className="text-gray-400 mt-3">
-                Bangladesh's premier sports and fitness destination for elite
-                athletes and fitness enthusiasts.
+                Nyanza region High School games and sports center, your premier
+                destination for top-tier athletic events and facilities.
               </p>
             </motion.div>
 
@@ -34,7 +34,7 @@ const Footer = () => {
               className="flex space-x-4"
             >
               <a
-                href="https://facebook.com/touhidtamim01"
+                href="https://web.facebook.com/profile.php?id=61551077543227"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
@@ -48,7 +48,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://x.com"
+                href="https://x.com/dez_ezra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -65,7 +65,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/dezmils?utm_source=qr&igsh=YWNwaXN2NmFlZjIx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-red-400 transition-colors"
@@ -79,7 +79,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://youtube.com/@touhidtamim"
+                href="https://www.youtube.com/@Matibomain"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-red-700 transition-colors"
@@ -180,7 +180,7 @@ const Footer = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span>123 Sports Avenue, Dhaka 1212, Bangladesh</span>
+                <span>Maseno, P.O. Box 3275-40100, Kisumu</span>
               </li>
               <li className="flex items-center">
                 <svg
@@ -196,7 +196,7 @@ const Footer = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span>+880 1711 123456</span>
+                <span>+2547 12 310 100</span>
               </li>
               <li className="flex items-center">
                 <svg
@@ -212,7 +212,7 @@ const Footer = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span>info@elitearena.com</span>
+                <span>info@Highsport.com</span>
               </li>
             </ul>
           </motion.div>
@@ -257,7 +257,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="text-gray-500 text-sm mb-4 md:mb-0"
             >
-              © {new Date().getFullYear()} Elite Arena. All rights reserved.
+              © {new Date().getFullYear()} High sport Notice Board. All rights reserved. Designed and developed by Dezmils Tech-Company
             </motion.p>
 
             <motion.div

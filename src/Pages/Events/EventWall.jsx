@@ -31,16 +31,7 @@ const EventWall = () => {
       ? events
       : events.filter((event) => event.type === activeType);
 
-  const getAspectClass = (aspect) => {
-    switch (aspect) {
-      case "portrait":
-        return "md:row-span-2";
-      case "landscape":
-        return "md:col-span-2";
-      default:
-        return "";
-    }
-  };
+
 
   if (loading) {
     return (
@@ -68,11 +59,9 @@ const EventWall = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-1 mb-4 text-sm font-bold text-yellow-400 bg-yellow-400/10 rounded-full border border-yellow-400/20">
-            EVENT SHOWCASE
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-serif">
-            <span className="text-yellow-400">Curated</span> Experiences
+         
+          <h1 className="text-5xl sm:text-5xl md:text-3xl lg:text-5xl font-extrabold text-white mb-4 font-serif">
+            <span className="text-yellow-400">Regional high school</span> Games and Sports center
           </h1>
           <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6 md:mb-8"></div>
           <motion.p
@@ -82,7 +71,7 @@ const EventWall = () => {
             viewport={{ once: true }}
             className="text-sm sm:text-md md:text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed italic"
           >
-            Immerse yourself in Elite Arena's most exclusive events
+            Immerse yourself in the most exclusive High School Games and sports events
           </motion.p>
         </motion.div>
       </div>
@@ -121,7 +110,7 @@ const EventWall = () => {
             No events found for this category
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 auto-rows-[minmax(200px,auto)]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredEvents.map((event) => (
               <motion.div
                 key={event.id}
@@ -129,89 +118,57 @@ const EventWall = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-                className={`relative group ${getAspectClass(event.aspect)}`}
                 onMouseEnter={() => setHoveredCard(event.id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 {/* Event Card */}
-                <div className="h-full bg-gray-900 rounded-lg md:rounded-xl overflow-hidden border border-gray-800 hover:border-yellow-400 transition-all shadow-lg">
+                <div className="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-yellow-400 transition-all shadow-lg hover:shadow-2xl flex flex-col h-96">
                   {/* Image */}
-                  <div className="h-full w-full relative overflow-hidden">
+                  <div className="h-48 w-full relative overflow-hidden bg-gray-800 flex-shrink-0">
                     <motion.img
                       src={event.image}
                       alt={event.title}
                       className="w-full h-full object-cover"
                       animate={{
-                        scale: hoveredCard === event.id ? 1.1 : 1,
+                        scale: hoveredCard === event.id ? 1.08 : 1,
                       }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.4 }}
                     />
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </div>
 
                   {/* Content */}
-                  <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end">
-                    <div className="space-y-2 sm:space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-yellow-400 text-xs font-bold tracking-wider">
+                  <div className="p-5 flex flex-col flex-grow justify-between">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center gap-2">
+                        <span className="text-yellow-400 text-xf font-bold tracking-wider">
                           {event.type.toUpperCase()}
                         </span>
-                        <span className="text-gray-400 text-xs">
+                        <span className="text-gray-400 text-xf flex items-center">  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
                           {event.date}
                         </span>
                       </div>
 
-                      <h3 className="text-lg sm:text-xl font-bold text-white">
+                      <h3 className="text-xl font-bold text-white mb-2">
                         {event.title}
                       </h3>
 
-                      <p className="text-gray-300 text-xs sm:text-sm italic">
-                        "{event.highlight}"
+                      <p className="text-gray-300 text-xs leading-relaxed line-clamp-2">
+                        {event.description}
                       </p>
-
-                      <div className="flex items-center text-gray-400 text-xs">
-                        <svg
-                          className="w-3 h-3 sm:w-4 sm:h-4 mr-1"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-                        {event.venue}
-                      </div>
-
-                      {/* Status */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{
-                          opacity: hoveredCard === event.id ? 1 : 0,
-                          y: hoveredCard === event.id ? 0 : 10,
-                        }}
-                        className="pt-1 sm:pt-2"
-                      >
-                        <span
-                          className={`inline-block px-2 py-0.5 sm:px-3 sm:py-1 text-xs font-bold rounded-full ${
-                            event.type === "Past Glory"
-                              ? "bg-gray-800 text-gray-300"
-                              : "bg-yellow-400 text-black"
-                          }`}
-                        >
-                          {event.status}
-                        </span>
-                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -229,14 +186,7 @@ const EventWall = () => {
         viewport={{ once: true }}
         className="text-center mt-12 md:mt-20"
       >
-        <motion.div>
-          <Link
-            to="/dashboard"
-            className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-full text-base sm:text-lg shadow-lg inline-block text-center"
-          >
-            View Full Event Calendar
-          </Link>
-        </motion.div>
+        
       </motion.div>
     </div>
   );
