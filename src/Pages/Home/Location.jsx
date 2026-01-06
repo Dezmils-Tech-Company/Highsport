@@ -35,6 +35,41 @@ const Location = () => {
     return `https://www.openstreetmap.org/export/embed.html?bbox=90.35,23.75,90.45,23.85&layer=mapnik&marker=${encodedAddress}`;
   };
 
+  // Build an embed URL from the location.map field (expects a Google Maps '?q=lat,lng' or a url containing 'lat,lng')
+  const getEmbedMapUrl = (loc) => {
+    if (!loc || !loc.map) return "";
+    try {
+      // try URL query param 'q'
+      const url = new URL(loc.map);
+      const q = url.searchParams.get("q");
+      let latLng = null;
+      if (q) {
+        latLng = q;
+      } else {
+        // fallback: try to extract first lat,lng pair from the string
+        const m = loc.map.match(/(-?\d+\.\d+),\s*(-?\d+\.\d+)/);
+        if (m) latLng = `${m[1]},${m[2]}`;
+      }
+
+      if (!latLng) return "";
+
+      const parts = latLng.split(",").map((s) => parseFloat(s.trim()));
+      if (parts.length !== 2 || Number.isNaN(parts[0]) || Number.isNaN(parts[1])) return "";
+      const lat = parts[0];
+      const lon = parts[1];
+      // small bbox around the point
+      const delta = 0.02;
+      const left = lon - delta;
+      const right = lon + delta;
+      const bottom = lat - delta;
+      const top = lat + delta;
+
+      return `https://www.openstreetmap.org/export/embed.html?bbox=${left},${bottom},${right},${top}&layer=mapnik&marker=${lat},${lon}`;
+    } catch (e) {
+      return "";
+    }
+  };
+
   return (
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
@@ -42,10 +77,10 @@ const Location = () => {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4 font-serif">
             Our <span className="text-yellow-500">Locations</span> Across
-            Bangladesh
+            Nyanza Region
           </h2>
           <p className="text-xl text-gray-600">
-            30+ elite facilities nationwide
+            Partner schools across Kenya's Nyanza Region
           </p>
           <div className="w-20 h-1 bg-yellow-500 mx-auto mt-4"></div>
         </div>
@@ -153,9 +188,9 @@ const Location = () => {
                       scrolling="no"
                       marginHeight="0"
                       marginWidth="0"
-                      src={`https://www.openstreetmap.org/export/embed.html?bbox=90.35,23.75,90.45,23.85&layer=mapnik&marker=${encodeURIComponent(
-                        selectedLocation.address
-                      )}`}
+                      src={
+                        getEmbedMapUrl(selectedLocation) || selectedLocation.map
+                      }
                     ></iframe>
                   </div>
 

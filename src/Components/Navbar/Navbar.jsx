@@ -86,7 +86,7 @@ const Navbar = () => {
 
   const navLinksLoggedOut = [
     { name: "Home", path: "/" },
-    { name: "Courts", path: "/courts" },
+    { name: "Results Table", path: "/courts" },
     { name: "Events", path: "/events" },
     { name: "Gallery", path: "/gallery" },
     { name: "Membership", path: "/membership" },
@@ -157,45 +157,17 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* RIGHT SIDE */}
-        {!user && (
-          <>
-            <div className="hidden lg:flex items-center gap-4 font-serif text-sm">
-              <Link
-                to="/login"
-                className="px-4 py-1.5 rounded border border-white hover:border-yellow-400 hover:text-yellow-400 transition cursor-pointer"
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="bg-blue-600 hover:bg-blue-700 rounded px-4 py-1.5 text-white cursor-pointer transition"
-              >
-                Register
-              </Link>
-            </div>
+        {/* RIGHT SIDE - NOTIFICATION ICON */}
+        <div className="flex items-center gap-4 sm:gap-5 relative">
+          <button
+            aria-label="Notifications"
+            className="text-lg sm:text-xl rounded-full hover:bg-yellow-400/20 hover:text-yellow-400 transition cursor-pointer p-2 sm:p-2.5"
+            onClick={() => navigate("/dashboard/announcements")}
+          >
+            <FiBell />
+          </button>
 
-            <div className="flex items-center gap-4 font-serif text-sm lg:hidden">
-              <Link
-                to="/login"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-3 py-1.5 rounded cursor-pointer transition duration-300"
-              >
-                Login
-              </Link>
-            </div>
-          </>
-        )}
-
-        {user && (
-          <div className="flex items-center gap-4 sm:gap-5 relative">
-            <button
-              aria-label="Notifications"
-              className="text-xl rounded-full hover:bg-white hover:text-black transition cursor-pointer p-1"
-              onClick={() => navigate("/dashboard/announcements")}
-            >
-              <FiBell />
-            </button>
-
+          {user && (
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen((prev) => !prev)}
@@ -236,8 +208,8 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* MOBILE & TABLET DRAWER */}
@@ -275,16 +247,6 @@ const Navbar = () => {
               {link.name}
             </NavLink>
           ))}
-
-          {!user && (
-            <Link
-              to="/register"
-              onClick={onNavLinkClick}
-              className="mt-4 inline-block px-4 py-2.5 rounded border border-yellow-400 text-white bg-blue-800/10 hover:bg-blue-600/20 cursor-pointer text-center transition duration-300"
-            >
-              Register
-            </Link>
-          )}
         </nav>
       </div>
     </nav>

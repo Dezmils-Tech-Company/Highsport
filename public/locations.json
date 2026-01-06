@@ -3,8 +3,8 @@
     "city": "Kisumu",
     "locations": [
       {
-        "branch": "Kisumu High School",
-        "address": "Nairobi Road, Kisumu, Kenya",
+        "branch": "Kisumu Day High School",
+        "address": "Kisumu CBD, Kenya",
         "map": "https://maps.google.com/?q=-0.1019,34.7680"
       },
       {
@@ -14,7 +14,7 @@
       },
       {
         "branch": "Maseno School",
-        "address": "Kisumu-Nakuru Road, Maseno, Kenya",
+        "address": "Kisumu-Busia Road, Maseno, Kenya",
         "map": "https://maps.google.com/?q=-0.0250,34.6650"
       },
       {
