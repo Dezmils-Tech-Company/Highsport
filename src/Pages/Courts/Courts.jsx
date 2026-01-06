@@ -1,5 +1,4 @@
-import ResultsTable from "./AllCourts";
-import CourtFacilities from "./Facilities";
+import ResultsTable from "./AllCourts/ResultsTable";
 
 const Courts = () => {
   return (

@@ -1,0 +1,81 @@
+// Sample game results data for Kisumu high schools
+export const gameResultsData = [
+  {
+    id: 1,
+    title: "Kisumu High vs Nyanza Girls",
+    sport: "Football",
+    date: "2025-01-12",
+    status: "Completed",
+    results: [
+      { school: "Kisumu High School", wins: 3, draws: 1, losses: 0, points: 10, gf: 8, ga: 2 },
+      { school: "Nyanza Girls High School", wins: 2, draws: 1, losses: 1, points: 7, gf: 6, ga: 4 },
+      { school: "Maseno School", wins: 1, draws: 2, losses: 1, points: 5, gf: 5, ga: 6 },
+      { school: "Moi Girls High School Kisumu", wins: 0, draws: 0, losses: 3, points: 0, gf: 1, ga: 8 },
+    ],
+  },
+  {
+    id: 2,
+    title: "Rugby Championship Round 1",
+    sport: "Rugby",
+    date: "2025-01-15",
+    status: "Ongoing",
+    results: [
+      { school: "Maseno School", wins: 2, draws: 0, losses: 0, points: 6, gf: 18, ga: 7 },
+      { school: "Kisumu High School", wins: 1, draws: 1, losses: 0, points: 4, gf: 14, ga: 10 },
+      { school: "Nyanza Girls High School", wins: 0, draws: 2, losses: 0, points: 2, gf: 8, ga: 10 },
+      { school: "Moi Girls High School Kisumu", wins: 0, draws: 0, losses: 2, points: 0, gf: 5, ga: 18 },
+    ],
+  },
+  {
+    id: 3,
+    title: "Hockey Tournament",
+    sport: "Hockey",
+    date: "2025-01-18",
+    status: "Upcoming",
+    results: [
+      { school: "Nyanza Girls High School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Kisumu High School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Maseno School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Moi Girls High School Kisumu", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+    ],
+  },
+  {
+    id: 4,
+    title: "Netball League Week 2",
+    sport: "Netball",
+    date: "2025-01-20",
+    status: "Upcoming",
+    results: [
+      { school: "Nyanza Girls High School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Moi Girls High School Kisumu", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Kisumu High School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Maseno School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+    ],
+  },
+  {
+    id: 5,
+    title: "Athletics Meet Finals",
+    sport: "Athletics",
+    date: "2025-01-22",
+    status: "Completed",
+    results: [
+      { school: "Kisumu High School", wins: 5, draws: 0, losses: 0, points: 15, gf: 156, ga: 0 },
+      { school: "Maseno School", wins: 3, draws: 0, losses: 2, points: 9, gf: 142, ga: 0 },
+      { school: "Nyanza Girls High School", wins: 2, draws: 0, losses: 3, points: 6, gf: 138, ga: 0 },
+      { school: "Moi Girls High School Kisumu", wins: 0, draws: 0, losses: 5, points: 0, gf: 121, ga: 0 },
+    ],
+  },
+  {
+    id: 6,
+    title: "Tennis Championship",
+    sport: "Tennis",
+    date: "2025-01-25",
+    status: "Upcoming",
+    results: [
+      { school: "Kisumu High School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Nyanza Girls High School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Maseno School", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+      { school: "Moi Girls High School Kisumu", wins: 0, draws: 0, losses: 0, points: 0, gf: 0, ga: 0 },
+    ],
+  },
+];
