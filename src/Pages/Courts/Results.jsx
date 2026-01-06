@@ -1,6 +1,6 @@
 import ResultsTable from "./AllCourts/ResultsTable";
 
-const Courts = () => {
+const Results = () => {
   return (
     <div>
       <ResultsTable />
@@ -8,4 +8,4 @@ const Courts = () => {
   );
 };
 
-export default Courts;
+export default Results;

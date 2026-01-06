@@ -4,7 +4,7 @@ import DashboardLayouts from "../Layouts/DashboardLayouts";
 import NotFound from "../Components/Shared/NotFound";
 
 import Home from "../Pages/Home/Home";
-import Courts from "../Pages/Courts/Courts";
+import Results from "../Pages/Courts/Results";
 import Events from "../Pages/Events/Events";
 import Gallery from "../Pages/Gallery/Gallery";
 import Membership from "../Pages/Membership/Membership";
@@ -43,7 +43,7 @@ const Router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: "courts", element: <Courts /> },
+      { path: "courts", element: <Results /> },
       { path: "events", element: <Events /> },
       { path: "gallery", element: <Gallery /> },
       { path: "membership", element: <Membership /> },
