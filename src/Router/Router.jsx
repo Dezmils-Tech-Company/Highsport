@@ -52,6 +52,7 @@ const Router = createBrowserRouter([
       { path: "terms-and-conditions", element: <TermsAndConditions /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
+      { path: "announcements", element: <Announcements /> },
     ],
   },
   {
@@ -77,7 +78,6 @@ const Router = createBrowserRouter([
       { path: "users", element: <AllUsers /> },
       { path: "coupons/manage", element: <ManageCoupons /> },
       { path: "payments/history", element: <PaymentHistory /> },
-      { path: "announcements", element: <Announcements /> },
       { path: "announcements/manage", element: <ManageAnnouncement /> },
       { path: "payment/:bookingId", element: <PaymentPage /> },
     ],

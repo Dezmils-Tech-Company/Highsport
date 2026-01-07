@@ -8,8 +8,8 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <EventWall />
       <Results />
+      <EventWall />
       <Location />
     </>
   );
