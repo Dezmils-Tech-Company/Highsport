@@ -8,7 +8,6 @@ import EventWall from "./EventWall";
 const Events = () => {
   return (
     <div className="bg-white text-gray-800">
-      <EventLandingHero />
       <EventWall />
       <FeaturedEventBanner />
       <UpcomingEvents />

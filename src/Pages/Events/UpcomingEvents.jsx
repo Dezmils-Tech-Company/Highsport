@@ -74,9 +74,7 @@ const UpcomingEvents = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1 mb-4 text-sm font-bold text-yellow-400 bg-yellow-400/10 rounded-full">
-            EVENT CALENDAR
-          </span>
+         
           <h2 className="text-4xl md:text-5xl font-bold text-white font-serif">
             Upcoming <span className="text-yellow-400">Experiences</span>
           </h2>
@@ -88,7 +86,7 @@ const UpcomingEvents = () => {
           {events.map((event, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 50 }} 
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true }}

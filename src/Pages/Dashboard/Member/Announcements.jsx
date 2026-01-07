@@ -47,7 +47,7 @@ const Announcements = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-4 md:p-8 bg-gray-900 rounded-xl my-12">
       <div className="relative mb-8">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-purple-500 opacity-30"></div>

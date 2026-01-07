@@ -88,8 +88,6 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Results Table", path: "/courts" },
     { name: "Events", path: "/events" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Membership", path: "/membership" },
     { name: "About Us", path: "/about" },
   ];
 
@@ -97,8 +95,6 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Courts", path: "/courts" },
     { name: "Events", path: "/events" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Membership", path: "/membership" },
     { name: "Dashboard", path: "/dashboard" },
   ];
 
