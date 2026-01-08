@@ -68,11 +68,11 @@ const ResultsTable = () => {
       id: 6,
       homeTeam: "Nyanza Girls",
       awayTeam: "Kisumu High",
-      homeScore: 6,
-      awayScore: 4,
-      date: "Dec 29, 2025",
+      homeScore: 0,
+      awayScore: 0,
+      date: "Feb 29, 2026",
       sport: "Tennis",
-      status: "Completed",
+      status: "upcoming",
     },
   ];
 
@@ -83,7 +83,7 @@ const ResultsTable = () => {
       case "completed":
         return "bg-green-500/20 text-green-400";
       case "ongoing":
-        return "bg-yellow-500/20 text-yellow-400";
+        return "bg-red-500/20 text-red-400";
       case "upcoming":
         return "bg-blue-500/20 text-blue-400";
       default:
@@ -117,7 +117,7 @@ const ResultsTable = () => {
         >
           
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-serif">
-            Nyanza Region <span className="text-yellow-400">Game Results</span>
+            Latest <span className="text-yellow-400">Game highlights</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Live standings and results from inter-school championships across Kisumu county
@@ -156,13 +156,17 @@ const ResultsTable = () => {
                   <div className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 hover:border-cyan-500/50 rounded-xl p-8 h-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)]">
                     {/* Sport Badge & Status */}
                     <div className="flex items-center justify-between mb-8">
-                      <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/10 px-3 py-1 rounded-full">
-                        {result.sport}
+                      <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/10 px-3 py-1 rounded-full flex items-center">
+                        { getSportIcon(result.sport) && getSportIcon(result.sport)} {result.sport}
                       </span>
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
                         <span className="text-xs font-semibold text-green-400 uppercase">
-                          {result.status}
+                          {getStatusColor(result.status) && (
+                            <span className={`${getStatusColor(result.status)} px-2 py-1 rounded-full`}>
+                              {result.status}
+                            </span>
+                          )}
                         </span>
                       </div>
                     </div>
@@ -278,157 +282,133 @@ const ResultsTable = () => {
         </motion.div>
 
         {/* Results Table */}
-        <motion.div
-          key={currentGame.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative"
-        >
-          {/* Table Container  */}
-          <div className="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 shadow-xl">
-            {/* Table Title Section */}
-            <div className="bg-gray-800 px-6 sm:px-8 py-5 border-b border-gray-700">
-              <div className="flex items-center gap-3">
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                    {currentGame.sport} <span className="text-yellow-500">Standings</span>
-                  </h3>
-                  <p className="text-gray-400 text-sm mt-1">Championship table</p>
+        {/* Results Table */}
+<motion.div
+  key={currentGame.id}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  className="relative"
+>
+  {/* Table Container  */}
+  <div className="bg-blue-50 rounded-xl overflow-hidden border border-blue-200 shadow-xl">
+    {/* Table Title Section */}
+    <div className="bg-blue-100 px-6 sm:px-8 py-5 border-b border-blue-200">
+      <div className="flex items-center gap-3">
+        <div>
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#0a1737]">
+            {currentGame.sport} <span className="text-yellow-600">Standings</span>
+          </h3>
+          <p className="text-[#0a1737] text-sm mt-1 opacity-70">Championship table</p>
+        </div>
+      </div>
+    </div>
+    {/* Table */}
+    <div className="overflow-x-auto">
+      <table className="w-full">
+        <thead>
+          <tr className="bg-blue-100 border-b border-blue-200">
+            <th className="px-4 sm:px-6 py-4 text-left text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0a1737]">
+              Rank
+            </th>
+            <th className="px-4 sm:px-6 py-4 text-left text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0a1737]">
+              School
+            </th>
+            <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0a1737] hidden sm:table-cell">
+              W
+            </th>
+            <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0a1737] hidden sm:table-cell">
+              D
+            </th>
+            <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0a1737] hidden sm:table-cell">
+              L
+            </th>
+            <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0a1737] hidden lg:table-cell">
+              GF
+            </th>
+            <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0a1737] hidden lg:table-cell">
+              GA
+            </th>
+            <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0a1737]">
+              Points
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-blue-100">
+          {currentGame.results.map((result, idx) => (
+            <tr
+              key={idx}
+              className={`transition-all duration-200 hover:bg-blue-100`}
+            >
+              {/* Position Badge */}
+              <td className="px-4 sm:px-6 py-4">
+                <div className="flex items-center justify-center">
+                  <span
+                    className={`inline-flex items-center justify-center w-8 h-8 rounded font-bold text-xs bg-yellow-500 text-[#0a1737]`}
+                  >
+                    {idx + 1}
+                  </span>
                 </div>
-              </div>
-            </div>
-
-            {/* Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-gray-800 border-b border-gray-700">
-                    <th className="px-4 sm:px-6 py-4 text-left text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider">
-                      Rank
-                    </th>
-                    <th className="px-4 sm:px-6 py-4 text-left text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider">
-                      School
-                    </th>
-                    <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider hidden sm:table-cell">
-                      W
-                    </th>
-                    <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider hidden sm:table-cell">
-                      D
-                    </th>
-                    <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider hidden sm:table-cell">
-                      L
-                    </th>
-                    <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider hidden lg:table-cell">
-                      GF
-                    </th>
-                    <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider hidden lg:table-cell">
-                      GA
-                    </th>
-                    <th className="px-4 sm:px-6 py-4 text-center text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-wider">
-                      Points
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-700">
-                  {currentGame.results.map((result, idx) => (
-                    <tr
-                      key={idx}
-                      className={`transition-all duration-200 hover:bg-gray-800/50 ${
-                        idx === 0 
-                          ? "bg-yellow-500/5" 
-                          : idx === 1 
-                          ? "bg-gray-400/5"
-                          : idx === 2
-                          ? "bg-orange-600/5"
-                          : ""
-                      }`}
-                    >
-                      {/* Position Badge */}
-                      <td className="px-4 sm:px-6 py-4">
-                        <div className="flex items-center justify-center">
-                          <span
-                            className={`inline-flex items-center justify-center w-8 h-8 rounded font-bold text-xs ${
-                              idx === 0
-                                ? "bg-yellow-600 text-white"
-                                : idx === 1
-                                ? "bg-gray-500 text-white"
-                                : idx === 2
-                                ? "bg-orange-700 text-white"
-                                : "bg-gray-700 text-gray-300"
-                            }`}
-                          >
-                            {idx + 1}
-                          </span>
-                        </div>
-                      </td>
-
-                      {/* School Name */}
-                      <td className="px-4 sm:px-6 py-4">
-                        <p className="text-white font-semibold text-sm sm:text-base">
-                          {result.school}
-                        </p>
-                        <p className="text-gray-500 text-xs mt-1 hidden sm:block">
-                          {result.wins + result.draws + result.losses} matches
-                        </p>
-                      </td>
-
-                      {/* Stats - Wins */}
-                      <td className="px-4 sm:px-6 py-4 text-center hidden sm:table-cell">
-                        <span className="text-white font-semibold">{result.wins}</span>
-                      </td>
-
-                      {/* Stats - Draws */}
-                      <td className="px-4 sm:px-6 py-4 text-center hidden sm:table-cell">
-                        <span className="text-gray-300 font-semibold">{result.draws}</span>
-                      </td>
-
-                      {/* Stats - Losses */}
-                      <td className="px-4 sm:px-6 py-4 text-center hidden sm:table-cell">
-                        <span className="text-gray-300 font-semibold">{result.losses}</span>
-                      </td>
-
-                      {/* Goals For */}
-                      <td className="px-4 sm:px-6 py-4 text-center hidden lg:table-cell">
-                        <span className="text-gray-300 font-semibold">{result.gf}</span>
-                      </td>
-
-                      {/* Goals Against */}
-                      <td className="px-4 sm:px-6 py-4 text-center hidden lg:table-cell">
-                        <span className="text-gray-300 font-semibold">{result.ga}</span>
-                      </td>
-
-                      {/* Points */}
-                      <td className="px-4 sm:px-6 py-4 text-center">
-                        <span className="font-bold text-yellow-500 text-lg">
-                          {result.points}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Table Footer with Legend */}
-            <div className="bg-gray-800 px-6 sm:px-8 py-4 border-t border-gray-700">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs sm:text-sm text-gray-400">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-white">W</span> - Wins
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-white">D</span> - Draws
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-white">L</span> - Losses
-                </div>
-                <div className="hidden sm:flex items-center gap-2">
-                  <span className="font-semibold text-white">GF</span> - Goals For
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+              </td>
+              {/* School Name */}
+              <td className="px-4 sm:px-6 py-4">
+                <p className="text-[#0a1737] font-semibold text-sm sm:text-base">
+                  {result.school}
+                </p>
+                <p className="text-[#0a1737] text-xs mt-1 hidden sm:block opacity-60">
+                  {result.wins + result.draws + result.losses} matches
+                </p>
+              </td>
+              {/* Stats - Wins */}
+              <td className="px-4 sm:px-6 py-4 text-center hidden sm:table-cell">
+                <span className="text-[#0a1737] font-semibold">{result.wins}</span>
+              </td>
+              {/* Stats - Draws */}
+              <td className="px-4 sm:px-6 py-4 text-center hidden sm:table-cell">
+                <span className="text-[#0a1737] font-semibold">{result.draws}</span>
+              </td>
+              {/* Stats - Losses */}
+              <td className="px-4 sm:px-6 py-4 text-center hidden sm:table-cell">
+                <span className="text-[#0a1737] font-semibold">{result.losses}</span>
+              </td>
+              {/* Goals For */}
+              <td className="px-4 sm:px-6 py-4 text-center hidden lg:table-cell">
+                <span className="text-[#0a1737] font-semibold">{result.gf}</span>
+              </td>
+              {/* Goals Against */}
+              <td className="px-4 sm:px-6 py-4 text-center hidden lg:table-cell">
+                <span className="text-[#0a1737] font-semibold">{result.ga}</span>
+              </td>
+              {/* Points */}
+              <td className="px-4 sm:px-6 py-4 text-center">
+                <span className="font-bold text-yellow-600 text-lg">
+                  {result.points}
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    {/* Table Footer with Legend */}
+    <div className="bg-blue-100 px-6 sm:px-8 py-4 border-t border-blue-200">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs sm:text-sm text-[#0a1737] opacity-70">
+        <div className="flex items-center gap-2">
+          <span className="font-semibold">W</span> - Wins
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="font-semibold">D</span> - Draws
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="font-semibold">L</span> - Losses
+        </div>
+        <div className="hidden sm:flex items-center gap-2">
+          <span className="font-semibold">GF</span> - Goals For
+        </div>
+      </div>
+    </div>
+  </div>
+</motion.div>
 
         
       </div>
