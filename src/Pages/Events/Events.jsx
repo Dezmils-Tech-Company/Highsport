@@ -10,8 +10,6 @@ const Events = () => {
     <div className="bg-white text-gray-800">
       <EventWall />
       <FeaturedEventBanner />
-      <UpcomingEvents />
-      <JoinEventCTA />
     </div>
   );
 };

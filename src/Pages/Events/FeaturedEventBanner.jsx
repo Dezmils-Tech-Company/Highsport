@@ -35,8 +35,8 @@ const FeaturedEventBanner = () => {
 
               {/* Main image */}
               <img
-                src="https://images.unsplash.com/photo-1542751371-adc38448a05e"
-                alt="Elite Championship"
+                src="https://res.cloudinary.com/daecietav/image/upload/v1767876945/WhatsApp_Image_2026-01-08_at_15.26.26_vwqk1z.jpg"
+                alt="Amadi Tournament"
                 className="w-full h-full object-cover object-center"
                 loading="eager"
               />
@@ -72,7 +72,7 @@ const FeaturedEventBanner = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               <span className="font-serif italic">The</span>{" "}
               <span className="font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                Elite Championship
+                Amadi Tournament
               </span>
             </h2>
 
@@ -104,7 +104,7 @@ const FeaturedEventBanner = () => {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  <span>Elite Arena Complex</span>
+                  <span>Score Yetu Complex</span>
                 </div>
                 <div className="flex items-center">
                   <svg
@@ -120,7 +120,7 @@ const FeaturedEventBanner = () => {
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <span>8:00 PM Daily</span>
+                  <span>8:00 AM Daily</span>
                 </div>
               </div>
 
@@ -134,7 +134,7 @@ const FeaturedEventBanner = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 className="relative overflow-hidden group bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-8 rounded-full text-lg shadow-md"
               >
-                <span className="relative z-10">Reserve Your Seat</span>
+                <span className="relative z-10">Get involved</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </motion.button>
             </div>
