@@ -78,13 +78,13 @@ const EventWall = () => {
 
       {/* Filter Tabs */}
       <motion.div
-        className="flex justify-center mb-8 md:mb-16"
+        className="flex justify-center mb-8 md:mb-16 bg-gray-200 rounded-full overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <div className=" justify-center gap-1 sm:gap-4 bg-gray-900/50 p-1 rounded-full border border-gray-800 overflow-hidden">
+        <div className=" flex flex-nowrap gap-2 sm:gap-4 overflow-x-auto px-3 py-2 scrollbar-thin scrollbar-thumb-red-700 scrollbar-track-transparent">
           {eventTypes.map((type) => (
             <motion.button
               key={type}
