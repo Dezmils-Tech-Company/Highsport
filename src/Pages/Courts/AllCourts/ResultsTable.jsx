@@ -81,13 +81,13 @@ const ResultsTable = () => {
   const getStatusColor = (status) => {
     switch (status.toLowerCase()) {
       case "completed":
-        return "bg-green-500/20 text-green-400";
+        return "bg-green-500/5 text-green-600";
       case "ongoing":
-        return "bg-red-500/20 text-red-400";
+        return "bg-red-500/5 text-red-600";
       case "upcoming":
-        return "bg-blue-500/20 text-blue-400";
+        return "bg-blue-500/5 text-blue-600";
       default:
-        return "bg-gray-500/20 text-gray-400";
+        return "bg-gray-500/5 text-gray-600";
     }
   };
 
@@ -105,7 +105,7 @@ const ResultsTable = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white  py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -116,10 +116,10 @@ const ResultsTable = () => {
           className="text-center mb-12"
         >
           
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-serif">
-            Latest <span className="text-yellow-400">Game highlights</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-black mb-4 font-inter">
+            Latest <span className="text-green-600">Game highlights</span>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-black text-xm max-w-2xl mx-auto">
             Live standings and results from inter-school championships across Kisumu county
           </p>
         </motion.div>{/* Results Carousel */}
@@ -153,15 +153,15 @@ const ResultsTable = () => {
             >
               {recentResults.map((result) => (
                 <SwiperSlide key={result.id}>
-                  <div className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 hover:border-cyan-500/50 rounded-xl p-8 h-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)]">
+                  <div className="bg-cyan-900/10 border  border-green-500/30 rounded-xl p-8 h-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)]">
                     {/* Sport Badge & Status */}
                     <div className="flex items-center justify-between mb-8">
-                      <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/10 px-3 py-1 rounded-full flex items-center">
+                      <span className="text-xs font-bold text-red-600 uppercase tracking-widest bg-cyan-400/10 px-3 py-1 rounded-full flex items-center">
                         { getSportIcon(result.sport) && getSportIcon(result.sport)} {result.sport}
                       </span>
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                        <span className="text-xs font-semibold text-green-400 uppercase">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span className="text-xs font-semibold  uppercase">
                           {getStatusColor(result.status) && (
                             <span className={`${getStatusColor(result.status)} px-2 py-1 rounded-full`}>
                               {result.status}
@@ -176,10 +176,10 @@ const ResultsTable = () => {
                       <div className="flex items-center justify-between gap-4">
                         {/* Home Team */}
                         <div className="flex-1 text-center">
-                          <div className="text-sm font-semibold text-gray-300 mb-3 line-clamp-2">
+                          <div className="text-sm font-semibold text-black mb-3 line-clamp-2">
                             {result.homeTeam}
                           </div>
-                          <div className="text-5xl font-black text-white drop-shadow-lg">
+                          <div className="text-5xl font-black text-red-600 drop-shadow-lg">
                             {result.homeScore}
                           </div>
                         </div>
@@ -194,10 +194,10 @@ const ResultsTable = () => {
 
                         {/* Away Team */}
                         <div className="flex-1 text-center">
-                          <div className="text-sm font-semibold text-gray-300 mb-3 line-clamp-2">
+                          <div className="text-sm font-semibold text-black mb-3 line-clamp-2">
                             {result.awayTeam}
                           </div>
-                          <div className="text-5xl font-black text-white drop-shadow-lg">
+                          <div className="text-5xl font-black text-red-600 drop-shadow-lg">
                             {result.awayScore}
                           </div>
                         </div>
@@ -205,11 +205,11 @@ const ResultsTable = () => {
 
                       {/* Date */}
                       <div className="flex items-center justify-center gap-2 pt-6 border-t border-gray-700">
-                        <div className="w-1 h-1 rounded-full bg-cyan-400"></div>
-                        <span className="text-xs text-gray-400 font-medium">
+                        <div className="w-1 h-1 rounded-full bg-green-600"></div>
+                        <span className="text-xs text-black font-medium">
                           {result.date}
                         </span>
-                        <div className="w-1 h-1 rounded-full bg-cyan-400"></div>
+                        <div className="w-1 h-1 rounded-full bg-green-600"></div>
                       </div>
                     </div>
                   </div>
@@ -242,7 +242,7 @@ const ResultsTable = () => {
                   (prev) => (prev - 1 + gameResultsData.length) % gameResultsData.length
                 )
               }
-              className="hidden sm:flex px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition items-center gap-2"
+              className="hidden sm:flex px-4 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg transition items-center gap-2"
             >
               <FaArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Prev</span>
@@ -256,7 +256,7 @@ const ResultsTable = () => {
                   onClick={() => setCurrentGameIndex(idx)}
                   className={`px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition-all flex-shrink-0 flex items-center gap-2 ${
                     currentGameIndex === idx
-                      ? "bg-yellow-500 text-black shadow-lg"
+                      ? " bg-red-600  text-white shadow-lg"
                       : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                   }`}
                 >
@@ -271,7 +271,7 @@ const ResultsTable = () => {
               onClick={() =>
                 setCurrentGameIndex((prev) => (prev + 1) % gameResultsData.length)
               }
-              className="hidden sm:flex px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition items-center gap-2"
+              className="hidden sm:flex px-4 py-2  bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg transition items-center gap-2"
             >
               <span className="hidden sm:inline">Next</span>
               <FaArrowRight className="w-4 h-4" />
@@ -281,7 +281,6 @@ const ResultsTable = () => {
           
         </motion.div>
 
-        {/* Results Table */}
         {/* Results Table */}
 <motion.div
   key={currentGame.id}
@@ -297,9 +296,9 @@ const ResultsTable = () => {
       <div className="flex items-center gap-3">
         <div>
           <h3 className="text-2xl sm:text-3xl font-bold text-[#0a1737]">
-            {currentGame.sport} <span className="text-yellow-600">Standings</span>
+            {currentGame.sport} <span className="text-red-600">Standings</span>
           </h3>
-          <p className="text-[#0a1737] text-sm mt-1 opacity-70">Championship table</p>
+          <p className="text-[#0a1737] text-sm mt-1 opacity-70">Amadi Tounament table</p>
         </div>
       </div>
     </div>
@@ -344,14 +343,14 @@ const ResultsTable = () => {
               <td className="px-4 sm:px-6 py-4">
                 <div className="flex items-center justify-center">
                   <span
-                    className={`inline-flex items-center justify-center w-8 h-8 rounded font-bold text-xs bg-yellow-500 text-[#0a1737]`}
+                    className={`inline-flex items-center justify-center w-8 h-8 rounded font-bold text-xs bg-red-600 text-white`}
                   >
                     {idx + 1}
                   </span>
                 </div>
               </td>
               {/* School Name */}
-              <td className="px-4 sm:px-6 py-4">
+              <td className="px-1 sm:px-5 py-1">
                 <p className="text-[#0a1737] font-semibold text-sm sm:text-base">
                   {result.school}
                 </p>
@@ -381,7 +380,7 @@ const ResultsTable = () => {
               </td>
               {/* Points */}
               <td className="px-4 sm:px-6 py-4 text-center">
-                <span className="font-bold text-yellow-600 text-lg">
+                <span className="font-bold text-red-600 text-lg">
                   {result.points}
                 </span>
               </td>

@@ -122,22 +122,8 @@ const Footer = () => {
                   Events
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/gallery"
-                  className="text-gray-400 hover:text-yellow-400 transition-colors"
-                >
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/membership"
-                  className="text-gray-400 hover:text-yellow-400 transition-colors"
-                >
-                  Membership
-                </Link>
-              </li>
+              
+             
               <li>
                 <Link
                   to="/about"

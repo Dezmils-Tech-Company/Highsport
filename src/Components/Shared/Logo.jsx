@@ -6,7 +6,7 @@ const Logo = () => {
       <span className="text-2xl font-extrabold tracking-tight text-white">
         SCORE
       </span>
-      <span className="text-2xl font-semibold tracking-wide text-yellow-400">
+      <span className="text-2xl font-bold tracking-wide text-green-500">
         YETU
       </span>
     </Link>

@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
 import { FiBell } from "react-icons/fi";
 import Logo from "../Shared/Logo";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -11,17 +10,12 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -33,12 +27,9 @@ const Navbar = () => {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Fetch latest user info from backend
   useEffect(() => {
     if (user?.email) {
       api
@@ -47,11 +38,6 @@ const Navbar = () => {
         .catch((err) => console.error("User fetch failed:", err));
     }
   }, [user]);
-
-  const toggleDrawer = () => {
-    setDrawerOpen((prev) => !prev);
-    setDropdownOpen(false);
-  };
 
   const handleLogout = () => {
     Swal.fire({
@@ -100,51 +86,34 @@ const Navbar = () => {
 
   const navLinks = user ? navLinksLoggedIn : navLinksLoggedOut;
 
-  const onNavLinkClick = () => {
-    setDrawerOpen(false);
-  };
+  // --- Responsive "scrollable" nav bar for mobile ---
+  // The main nav changes to horizontal scrollable below the logo/header for small screens.
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300
-        ${
-          window.innerWidth < 1024
-            ? "bg-gray-900"
-            : isScrolled
-            ? "bg-gray-900 shadow-md"
-            : "bg-gray-900/50 backdrop-blur-md"
-        }
+        ${isScrolled ? "bg-red-800 shadow-md" : "bg-red-700/90 backdrop-blur"}
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14 md:h-15 lg:h-16">
-        {/* LEFT SIDE */}
-        <div className="flex items-center gap-4">
-          {/* Hamburger for tablet and mobile */}
-          <button
-            onClick={toggleDrawer}
-            className="text-xl lg:hidden focus:outline-none bg-gray-800 rounded p-1.5"
-            aria-label="Toggle Menu"
-          >
-            {drawerOpen ? <FaTimes /> : <FaBars />}
-          </button>
-
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" onClick={() => setDrawerOpen(false)}>
-              <Logo />
-            </Link>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14 md:h-16">
+        {/* LEFT SIDE - LOGO */}
+        <div className="flex items-center gap-3">
+          <Link to="/">
+            <Logo />
+          </Link>
         </div>
-
-        {/* MIDDLE */}
-        <div className="hidden lg:flex gap-6 xl:gap-8 font-serif">
+        {/* CENTER: Desktop Menu */}
+        <div className="hidden lg:flex gap-6 font-serif">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `relative px-1 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-white after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
-                  isActive ? "after:scale-x-100" : ""
+                `relative px-2 py-1 rounded transition 
+                ${
+                  isActive
+                    ? "bg-green-600 text-white shadow"
+                    : "hover:bg-black/20 hover:text-yellow-300"
                 }`
               }
             >
@@ -152,22 +121,20 @@ const Navbar = () => {
             </NavLink>
           ))}
         </div>
-
-        {/* RIGHT SIDE - NOTIFICATION ICON */}
-        <div className="flex items-center gap-4 sm:gap-5 relative">
+        {/* RIGHT SIDE - NOTIFICATIONS/AVATAR */}
+        <div className="flex items-center gap-2 sm:gap-4">
           <button
             aria-label="Notifications"
-            className="text-lg sm:text-xl rounded-full hover:bg-yellow-400/30 hover:text-yellow-400 transition cursor-pointer p-2 sm:p-2.5"
+            className="rounded-full text-lg hover:bg-green-600/20 hover:text-white transition p-2"
             onClick={() => navigate("/announcements")}
           >
             <FiBell />
           </button>
-
           {user && (
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen((prev) => !prev)}
-                className="w-9 h-9 rounded-full overflow-hidden border-2 border-blue-600 cursor-pointer"
+                className="w-9 h-9 rounded-full overflow-hidden border-2 border-green-700 cursor-pointer"
                 aria-haspopup="true"
                 aria-expanded={dropdownOpen}
               >
@@ -176,28 +143,28 @@ const Navbar = () => {
                     userData?.image ||
                     "https://ui-avatars.com/api/?name=" +
                       encodeURIComponent(user.displayName || "User") +
-                      "&background=3b82f6&color=fff&size=64"
+                      "&background=d32f2f&color=fff&size=64"
                   }
                   alt="User Avatar"
                   className="w-full h-full object-cover"
                 />
               </button>
-
+              {/* Dropdown */}
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-gray-800 border border-gray-700 rounded shadow-lg z-50">
-                  <div className="px-4 py-2 border-b border-gray-700 text-sm text-gray-300 select-none">
+                <div className="absolute right-0 mt-2 w-48 bg-white text-blue-900 border border-red-700 rounded shadow-md z-50">
+                  <div className="px-4 py-2 border-b border-gray-200 text-sm font-semibold select-none">
                     {userData?.name || user.displayName || "User"}
                   </div>
                   <NavLink
                     to="/dashboard"
                     onClick={() => setDropdownOpen(false)}
-                    className="block px-4 py-2 text-sm hover:bg-blue-600 hover:text-white cursor-pointer"
+                    className="block px-4 py-2 text-sm hover:bg-green-50 hover:text-green-800"
                   >
                     Dashboard
                   </NavLink>
                   <button
                     onClick={handleLogout}
-                    className="w-full text-left px-4 py-2 text-sm hover:bg-red-600 hover:text-white cursor-pointer"
+                    className="w-full text-left px-4 py-2 text-sm hover:bg-red-100 hover:text-red-900"
                   >
                     Logout
                   </button>
@@ -208,42 +175,27 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* MOBILE & TABLET DRAWER */}
-      <div
-        className={`fixed top-0 left-0 h-full w-64 bg-gray-900 text-white shadow-lg transform transition-transform duration-300 z-50
-          ${drawerOpen ? "translate-x-0" : "-translate-x-full"}`}
-      >
-        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-700">
-          <Link to="/" onClick={onNavLinkClick}>
-            <Logo />
-          </Link>
-          <button
-            onClick={toggleDrawer}
-            aria-label="Close Menu"
-            className="p-1.5"
-          >
-            <FaTimes />
-          </button>
-        </div>
-
-        <nav className="flex flex-col gap-3 px-5 py-6 text-sm font-serif">
+      {/* MOBILE SCROLLABLE NAV BAR */}
+      <div className="lg:hidden border-t border-white/30 bg-gradient-to-r from-green-700/20 via-red-700 to-black/30">
+        <div className="flex gap-1 overflow-x-auto px-2 py-2 scrollbar-thin scrollbar-thumb-red-800 scrollbar-track-transparent">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              onClick={onNavLinkClick}
               className={({ isActive }) =>
-                `py-2 px-3 border-b  transition-all duration-300 font-semibold ${
+                `flex-shrink-0 px-2 py-0.5 rounded-full font-semibold text-sm focus:outline-none transition-all whitespace-nowrap
+                ${
                   isActive
-                    ? "bg-blue-600/30  border-gray-600"
-                    : "text-gray-300 border-gray-600 hover:bg-blue-500 hover:text-white"
+                    ? "bg-green-500 text-black border-2 border-green-100 shadow-inner"
+                    : "bg-white text-red-800 border border-red-700 hover:bg-yellow-300 hover:text-black"
                 }`
               }
             >
               {link.name}
             </NavLink>
           ))}
-        </nav>
+        </div>
+        <div className="h-1 w-full bg-gradient-to-r from-green-700 via-white to-black"></div>
       </div>
     </nav>
   );

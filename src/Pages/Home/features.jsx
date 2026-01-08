@@ -48,7 +48,7 @@ const systemCoreCards = [
 
 // Sleek, small, horizontally scrolling cards:
 const CoreValuesCarousel = () => (
-  <section className="py-12 px-4 bg-black/2 text-white">
+  <section className="py-4 px-4 bg-gradient-to-b from-black/2 via-red-700/50 to-white text-white">
     <h2 className="text-3xl font-bold mb-6 text-center">Our Core Values</h2>
     <div className="overflow-x-auto pb-2">
       <ul className="flex gap-5 flex-nowrap">

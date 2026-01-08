@@ -35,22 +35,22 @@ const EventWall = () => {
 
   if (loading) {
     return (
-      <div className="bg-gradient-to-b from-gray-950 via-gray-700 to-gray-600 py-24 px-4 text-center min-h-screen flex items-center justify-center">
-        <div className="text-yellow-400 text-xl">Loading events...</div>
+      <div className="bg-white py-24 px-4 text-center min-h-screen flex items-center justify-center">
+        <div className="text-red-600 text-xl">Loading events...</div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="bg-gradient-to-b from-gray-950 via-gray-700 to-gray-600 py-24 px-4 text-center min-h-screen flex items-center justify-center">
+      <div className="bg-white py-24 px-4 text-center min-h-screen flex items-center justify-center">
         <div className="text-red-400 text-xl">{error}</div>
       </div>
     );
   }
 
   return (
-    <div className="bg-gradient-to-b from-gray-950 via-gray-700 to-gray-600 py-12 md:py-24 px-4 sm:px-6">
+    <div className="bg-white py-12 md:py-24 px-4 sm:px-6">
       {/* Header */}
       <div className="max-w-7xl mx-auto text-center mb-8 md:mb-12">
         <motion.div
@@ -60,16 +60,16 @@ const EventWall = () => {
           viewport={{ once: true }}
         >
          
-          <h1 className="text-5xl sm:text-5xl md:text-3xl lg:text-5xl font-extrabold text-white mb-4 font-serif">
-            <span className="text-yellow-400">Regional high school</span> Games and Sports center
+          <h1 className="text-3xl sm:text-5xl md:text-3xl lg:text-5xl font-extrabold text-black mt-0 mb-2 font-serif">
+            <span className="text-red-600">Regional high school</span> Games and Sports center
           </h1>
-          <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6 md:mb-8"></div>
+          <div className="w-24 h-1 bg-red-600 mx-auto mb-6 md:mb-8"></div>
           <motion.p
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-md md:text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed italic"
+            className="text-sm sm:text-md md:text-xl text-black max-w-2xl mx-auto text-center leading-relaxed italic"
           >
             Immerse yourself in the most exclusive High School Games and sports events
           </motion.p>
@@ -84,7 +84,7 @@ const EventWall = () => {
         transition={{ delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <div className="inline-flex flex-wrap justify-center gap-2 sm:gap-3 bg-gray-900/50 p-1 rounded-full border border-gray-800">
+        <div className=" justify-center gap-1 sm:gap-4 bg-gray-900/50 p-1 rounded-full border border-gray-800 overflow-hidden">
           {eventTypes.map((type) => (
             <motion.button
               key={type}
@@ -93,8 +93,8 @@ const EventWall = () => {
               onClick={() => setActiveType(type)}
               className={`px-4 sm:px-6 py-1 sm:py-2 border lg:border-none border-gray-700 rounded-full text-xs sm:text-sm font-medium transition-all ${
                 activeType === type
-                  ? "bg-yellow-400 text-black shadow-lg"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-red-600 text-white shadow-lg"
+                  : "text-black hover:text-white"
               }`}
             >
               {type}
