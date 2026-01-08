@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 const HeroAboutIntro = () => {
   const sentence =
-    "Step into Elite Arena — where excellence meets passion, athletes become icons, and every match forges history.";
+    "Step into Highsport — where excellence meets passion, athletes become icons, and every match forges history.";
 
   return (
-    <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[90vh] pt-20 bg-[#1f1f23] overflow-hidden">
+    <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[90vh] pt-20 bg-[#2e2e36] overflow-hidden">
       {/* Background Image with scale-out animation */}
       <motion.div
         className="absolute inset-0"
@@ -15,8 +15,8 @@ const HeroAboutIntro = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <img
-          src="https://i.ibb.co/XfzCKmyV/above-horizon-IFM5-DHr-Ilio-unsplash.jpg"
-          alt="Elite Arena"
+          src="https://res.cloudinary.com/daecietav/image/upload/v1767865239/WhatsApp_Image_2026-01-08_at_12.36.18_1_rcnent.jpg"
+          alt="Highschool football match in Kenya"
           className="w-full h-full object-cover object-center opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-gray-900/60 to-gray-800/30" />
