@@ -90,7 +90,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="relative bg-gray-900 h-[70vh] md:h-[80vh] lg:h-[90vh] mt-1 max-h-[900px] overflow-hidden pt-20 mt-15">
+    <section className="relative bg-white h-[70vh] md:h-[80vh] lg:h-[90vh] mt-1 max-h-[900px] overflow-hidden pt-20 mt-15">
       {slides.map((slide, index) => (
         <motion.div
           key={slide.id}
@@ -100,7 +100,7 @@ const Banner = () => {
           animate={currentSlide === index ? "center" : "exit"}
           className="absolute inset-0 flex items-center"
         >
-          <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/100 via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 z-10 bg-gradient-to-br from-black/100 via-white/50 to-transparent"></div>
           <img
             src={slide.image}
             alt={slide.title}
@@ -116,17 +116,17 @@ const Banner = () => {
               className="max-w-2xl"
             >
               <motion.span
-                className="text-green-500 font-Bold text-xl mb-2 block"
+                className="text-green-600 text-shadow-2xs font-Bold text-xl mb-2 block"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
                 {slide.subtitle}
               </motion.span>
-              <h2 className="text-3xl md:text-6xl font-poppins font-bold text-white  mb-4 font-serif tracking-tight leading-tight">
+              <h2 className="text-3xl md:text-6xl font-poppins font-bold text-white text-shadow-2xs mb-4 font-serif tracking-tight leading-tight">
                 {slide.title}
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-white mb-8 max-w-xl sm:max-w-lg">
+              <p className="text-base sm:text-lg md:text-xl text-white text-shadow-2xs mb-8 max-w-xl sm:max-w-lg">
                 {slide.description}
               </p>
               <motion.div
@@ -168,15 +168,15 @@ const Banner = () => {
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               currentSlide === index
-                ? "bg-yellow-400 w-6"
-                : "bg-gray-500 hover:bg-gray-400"
+                ? "bg-red-600 w-6"
+                : "bg-green-500 hover:bg-green-400"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
       {/* Gradient overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-green-100 to-transparent z-10"></div>
     </section>
   );
 };

@@ -17,7 +17,7 @@ const containerStagger = {
 };
 
 const HighsportAbout = () => (
-  <section className="bg-gradient-to-b from-gray-950 via-gray-900 to-gray text-white px-4 py-24 md:px-20 space-y-24">
+  <section className="bg-white text-black px-4 py-24 md:px-20 space-y-24">
     {/* Our Story */}
     <motion.div
       variants={containerStagger}
@@ -28,21 +28,21 @@ const HighsportAbout = () => (
     >
       <motion.h2
         variants={fadeUpVariant}
-        className="text-4xl md:text-5xl font-bold mb-6 font-serif text-yellow-400 drop-shadow-sm"
+        className="text-4xl md:text-5xl font-bold mb-6 font-serif text-red-600 drop-shadow-sm"
       >
         Our Story
       </motion.h2>
       <motion.p
         variants={fadeUpVariant}
-        className="text-lg md:text-xl text-white leading-relaxed"
+        className="text-lg md:text-xl text-black leading-relaxed"
       >
-        In the heart of Western Kenya, where school sports overflow with ambition and talent, a paradox endures—legendary athletes emerge from invisible games, their achievements lost to time. Our journey began with a simple conviction: <span className="text-yellow-400 font-semibold">no great moment should fade, and no young athlete's story should go untold</span>.
+        In the heart of Western Kenya, where school sports overflow with ambition and talent, a paradox endures—legendary athletes emerge from invisible games, their achievements lost to time. Our journey began with a simple conviction: <span className="text-red-500 font-semibold">no great moment should fade, and no young athlete's story should go untold</span>.
       </motion.p>
       <motion.p
         variants={fadeUpVariant}
-        className="text-lg md:text-xl text-white mt-6"
+        className="text-lg md:text-xl text-black mt-6"
       >
-        We built this platform to transform how Siaya and Kisumu communities connect, remember, and grow—moving from scattered, analog records to a living digital legacy. What began as a mission for record-keeping has become a catalyst for <span className="text-yellow-400 font-semibold">pride, opportunity, and unity</span> for families, schools, and the region as a whole.
+        We built this platform to transform how Siaya and Kisumu communities connect, remember, and grow—moving from scattered, analog records to a living digital legacy. What began as a mission for record-keeping has become a catalyst for <span className="text-red-500 font-semibold">pride, opportunity, and unity</span> for families, schools, and the region as a whole.
       </motion.p>
     </motion.div>
 
@@ -61,10 +61,10 @@ const HighsportAbout = () => (
         className="rounded-xl shadow-2xl w-full h-auto object-cover"
       />
       <motion.div variants={fadeUpVariant}>
-        <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+        <h3 className="text-3xl md:text-4xl font-bold text-green-700 mb-6">
           What Makes Us Unique
         </h3>
-        <ul className="space-y-4 text-blue-100 text-lg list-disc list-inside">
+        <ul className="space-y-4 text-black text-lg list-disc list-inside">
           <li>📖 Every match, every player, every stat—digitally preserved for generations</li>
           <li>🌍 Diaspora, alumni, and families can follow and celebrate team journeys, anywhere in the world</li>
           <li>📈 Authentic, community-powered journalism: stories and results from teachers, students, and coaches</li>
@@ -80,15 +80,15 @@ const HighsportAbout = () => (
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="bg-black-500/80 p-10 md:p-14 rounded-xl shadow-inner max-w-6xl mx-auto text-center space-y-6 border border-blue-800"
+      className="bg-black-500/80 p-10 md:p-14 rounded-xl shadow-inner max-w-6xl mx-auto text-center space-y-6 border border-green-800"
     >
-      <h3 className="text-3xl md:text-4xl font-bold font-serif text-yellow-400">
+      <h3 className="text-3xl md:text-4xl font-bold font-serif text-red-500">
         Our Vision & Mission
       </h3>
-      <p className="text-blue-100 text-lg md:text-xl max-w-4xl mx-auto">
+      <p className="text-black text-lg md:text-xl max-w-4xl mx-auto">
         To ensure every moment of athletic excellence—across every school, every game, every county—is seen, remembered, and transformed into opportunity for the next generation.
       </p>
-      <p className="text-blue-200 text-base md:text-lg max-w-3xl mx-auto">
+      <p className="text-black/85 text-base md:text-lg max-w-3xl mx-auto">
         Our mission is to build a vibrant, digital ecosystem that documents, celebrates, and nurtures talent—creating visible pathways from community pride to national achievement, and connecting every athlete’s story to the world.
       </p>
     </motion.div>

@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Logo from "./../../Components/Shared/Logo"
 
 const HeroAboutIntro = () => {
   const sentence =
-    "Step into Highsport — where excellence meets passion, athletes become icons, and every match forges history.";
+    "Step into  — where excellence meets passion, athletes become icons, and every match forges history.";
 
   return (
     <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[90vh] pt-20 bg-[#2e2e36] overflow-hidden">
@@ -31,7 +32,7 @@ const HeroAboutIntro = () => {
         viewport={{ once: true, amount: 0.4 }}
       >
         <h1 className="text-4xl md:text-6xl font-bold font-serif leading-tight mb-6 tracking-tight drop-shadow-xl">
-          Beyond Sports. <br /> A Legacy in Motion.
+         <span className="text-red-600" >Beyond Sports.</span>  <br/> A Legacy in Motion.
         </h1>
 
         {/* Animated paragraph like EventLandingHero */}
@@ -65,7 +66,10 @@ const HeroAboutIntro = () => {
             </motion.span>
           ))}
         </motion.div>
+        <br />
+        <div className="h-1 w-50 bg-gradient-to-r from-green-700 via-white to-red-600"></div>
       </motion.div>
+       
     </section>
   );
 };

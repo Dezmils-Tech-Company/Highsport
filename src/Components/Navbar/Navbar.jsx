@@ -187,7 +187,7 @@ const Navbar = () => {
                 ${
                   isActive
                     ? "bg-green-500 text-black border-2 border-green-100 shadow-inner"
-                    : "bg-white text-red-800 border border-red-700 hover:bg-yellow-300 hover:text-black"
+                    : "bg-white text-red-800 border border-red-700 hover:bg-red-300 hover:text-black"
                 }`
               }
             >
@@ -195,7 +195,7 @@ const Navbar = () => {
             </NavLink>
           ))}
         </div>
-        <div className="h-1 w-full bg-gradient-to-r from-green-700 via-white to-black"></div>
+       
       </div>
     </nav>
   );
