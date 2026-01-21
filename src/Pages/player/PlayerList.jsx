@@ -13,10 +13,8 @@ const PlayersPage = () => {
   );
 
   return (
-    <div className="mt-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
-      <h1 className="text-2xl sm:text-3xl font-bold text-green-700 mb-6">
-        Player Directory
-      </h1>
+    <div className="mt-16 px-2 sm:px-6 lg:px-12 ">
+      
 
       {/* Search */}
       <div className="flex gap-2 mb-6">
