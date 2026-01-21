@@ -74,6 +74,8 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Results Table", path: "/courts" },
     { name: "Events", path: "/events" },
+    { name: "Schools", path: "/" },
+    { name: "Players", path: "/players" },
     { name: "About Us", path: "/about" },
   ];
 
@@ -113,7 +115,7 @@ const Navbar = () => {
                 ${
                   isActive
                     ? "bg-green-600 text-white shadow"
-                    : "hover:bg-black/20 hover:text-yellow-300"
+                    : "hover:bg-black/20 hover:text-red-300"
                 }`
               }
             >
@@ -183,11 +185,11 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `flex-shrink-0 px-2 py-0.5 rounded-full font-semibold text-sm focus:outline-none transition-all whitespace-nowrap
+                `flex-shrink-0 px-1 py-0.5  font-semibold text-sm focus:outline-none transition-all whitespace-nowrap
                 ${
                   isActive
-                    ? "bg-green-500 text-black border-2 border-green-100 shadow-inner"
-                    : "bg-white text-red-800 border border-red-700 hover:bg-red-300 hover:text-black"
+                    ? " text-black bg-green-500 border-1 border-green-100 rounded-xl shadow-inner"
+                    : " text-white border-b border-white rounded-xs  hover:rounded-xl hover:text-green-500"
                 }`
               }
             >

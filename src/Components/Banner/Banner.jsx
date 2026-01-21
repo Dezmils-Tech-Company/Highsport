@@ -39,7 +39,7 @@ const slides = [
     subtitle: "Follow, Cheer, Belong",
     description:
       "Whether you’re a parent, fan, or alumnus at home or abroad, never miss a match or story again. Connect with your team, relive rivalries, and support the next generation.",
-    image: "/BannerImg/slide4.jpg",
+    image: "/BannerImg/slide4.jpeg",
     cta: "Find Your School",
     link: "/schools",
   },

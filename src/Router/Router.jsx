@@ -36,6 +36,9 @@ import ManageBookings from "../Pages/Dashboard/Admin/ManageBookings";
 import PaymentHistory from "../Pages/Dashboard/Member/PaymentHistory";
 import Overview from "../Pages/Dashboard/Shared/Overview/overview";
 
+// ✅ Player pages
+import PlayersPage from "../Pages/player/PlayersPage";
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +56,9 @@ const Router = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "announcements", element: <Announcements /> },
+
+      // ✅ New Player route
+      { path: "players", element: <PlayersPage /> },
     ],
   },
   {

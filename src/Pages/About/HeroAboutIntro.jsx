@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Logo from "./../../Components/Shared/Logo"
 
 const HeroAboutIntro = () => {
   const sentence =
