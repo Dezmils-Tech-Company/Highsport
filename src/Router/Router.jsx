@@ -38,6 +38,7 @@ import Overview from "../Pages/Dashboard/Shared/Overview/overview";
 
 // ✅ Player pages
 import PlayersPage from "../Pages/player/PlayersPage";
+import PlayerProfile from "../Pages/player/PlayerProfile";
 
 const Router = createBrowserRouter([
   {
@@ -57,8 +58,9 @@ const Router = createBrowserRouter([
       { path: "register", element: <Register /> },
       { path: "announcements", element: <Announcements /> },
 
-      // ✅ New Player route
+      // ✅ New Player routes
       { path: "players", element: <PlayersPage /> },
+      { path: "players/:id", element: <PlayerProfile /> },
     ],
   },
   {

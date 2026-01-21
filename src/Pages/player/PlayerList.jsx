@@ -1,50 +1,47 @@
 import React, { useState } from "react";
 import PlayerCard from "./PlayerCard";
-import PlayerProfile from "./PlayerProfile";
 import { mockPlayers } from "./mockPlayers";
 
-const PlayerList = () => {
-  const [selectedPlayer, setSelectedPlayer] = useState(null);
-  const [filter, setFilter] = useState("");
+const PlayersPage = () => {
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filteredPlayers = mockPlayers.filter(
     (p) =>
-      p.name.toLowerCase().includes(filter.toLowerCase()) ||
-      p.school.toLowerCase().includes(filter.toLowerCase()) ||
-      p.sport.toLowerCase().includes(filter.toLowerCase())
+      p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      p.school.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      p.sport.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6">
-      {/* Left side: Player list */}
-      <div className="flex-1 bg-white shadow-md rounded-md p-4">
-        <h2 className="text-xl font-bold text-green-700 mb-4">Players</h2>
+    <div className="mt-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+      <h1 className="text-2xl sm:text-3xl font-bold text-green-700 mb-6">
+        Player Directory
+      </h1>
+
+      {/* Search */}
+      <div className="flex gap-2 mb-6">
         <input
           type="text"
           placeholder="Search by name, school, sport..."
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="w-full mb-4 px-3 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="flex-1 px-3 py-2 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
         />
-
-        <div className="space-y-3">
-          {filteredPlayers.map((player) => (
-            <PlayerCard
-              key={player.id}
-              player={player}
-              onSelect={setSelectedPlayer}
-            />
-          ))}
-        </div>
+        <button
+          className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+        >
+          Search
+        </button>
       </div>
 
-      {/* Right side: Player profile */}
-      <div className="flex-1 bg-white shadow-md rounded-md p-4">
-        <h2 className="text-xl font-bold text-green-700 mb-4">Profile</h2>
-        <PlayerProfile player={selectedPlayer} />
+      {/* Player list */}
+      <div className="space-y-3">
+        {filteredPlayers.map((player) => (
+          <PlayerCard key={player.id} player={player} />
+        ))}
       </div>
     </div>
   );
 };
 
-export default PlayerList;
+export default PlayersPage;
